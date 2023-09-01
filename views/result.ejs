@@ -1,0 +1,58 @@
+<!doctype HTML>
+<html>
+<head>
+<%- include('comp/_head.ejs') %>
+</head>
+<body>
+<div id="tsparticles"></div>
+<div class="container" id="container">
+<div class="page-header">
+<div class="col-md-12">
+<h1 style="color: #ffffffe1;" class="animated infinite pulse pulse2"> File Zone </h1>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(event) {
+    $('ul.nav.nav-tabs a:first').tab('show'); // Select first tab
+    $('ul.nav.nav-tabs a[href="'+ window.location.hash+ '"]').tab('show'); // Select tab by name if provided in location hash
+    $('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+        window.location.hash= event.target.hash;
+    })
+});
+	</script>
+<div class="row">
+<div class="col-md-3 col-xs-0"></div>
+<div class="col-md-6 col-xs-12">
+<div class="panel panel-primary">
+<div class="panel-heading">Result File</div>
+<div class="tabbable tabs-top panel-body">
+<ul class="nav nav-tabs" data-tabs="tab">
+<li><a data-toggle="tab">File</a></li>
+</ul>
+<div class="tab-content" style="margin-top: 15px">
+<div class="tab-pane active" id="upload">
+<form>
+<div class="form-group">
+<label>File: </label> <input type="text" id="to-copy" class="form-control text-secondary" value="<%= result.url %>" readonly="readonly">
+</div>
+<div style="font-size: x-small">
+File Size : <%= result.filesize %> / <%= MaxSize %> </div>
+<div class="form-group">
+</div>
+</form>
+<button style="margin-top: 1rem" id="copy" class="btn btn-primary">Copy Link</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 text-center" style="margin-top: 50px">
+<p><a href="https://caliph.my.id" style="color: #ffffffff;">2023 Made by ArifzynXD</a>
+</p>
+</div>
+</div>
+<script src="/static/js/copied.js"></script>
+<%- include('comp/particles.ejs') %>
+</body>
+</html>
